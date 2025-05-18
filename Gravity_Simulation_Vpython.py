@@ -3,8 +3,7 @@ from vpython import *
 import sympy as sp
 
 global G
-G=6.67430*(10**-3)
-
+G=6.67430*(10**-11)
 p_1=input("Enter position vec of m1 (x,y,z):")
 p_2=input("Enter position vec of m2 (x,y,z):")
 
@@ -18,11 +17,11 @@ p2=vec(x2,y2,z2)
 
 
 
-plnt=sphere(pos=p1, radius=1, color=color.red,make_trail=True)
+plnt=sphere(pos=p1, radius=10000000, color=color.red,make_trail=True)
 
-star=sphere(pos=p2, radius=2, color=color.yellow)
+star=sphere(pos=p2, radius=20000000, color=color.yellow)
 
-plnt.velocity=vector(0,0,0)
+plnt.velocity=vector(0,10220,0)
 
 a=float(input("m1"))
 b=float(input("m2"))
@@ -39,16 +38,24 @@ def gravity(p1,p2,m1,m2):
     r_vec=p1-p2
     r_mag=mag(r_vec)
     F_vec=-((G*(m1*m2))/(r_mag**2))*norm(r_vec)
-    print(F_vec)
+    a_vec=F_vec/a
+    return a_vec
     
 
 
-dt=1
+dt=0.1
 
 while True:
-    rate(100)
+    rate(500)
+
+    a_vec=gravity(plnt.pos,star.pos,a,b)
+    plnt.velocity= plnt.velocity + (a_vec) * dt
+    plnt.pos=plnt.pos + plnt.velocity * dt
     
-    plnt.pos=plnt.pos+plnt.velocity*dt
-    F_vec=gravity(plnt.pos,star.pos,a,b)
-    acc=(F_vec)*(a**-1)
-    plnt.velocity=plnt.velocity+(acc)*dt
+
+
+
+
+
+
+    

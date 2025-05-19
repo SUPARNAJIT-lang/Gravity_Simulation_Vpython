@@ -17,11 +17,11 @@ p2=vec(x2,y2,z2)
 
 
 
-plnt=sphere(pos=p1, radius=1, color=color.red)
+plnt=sphere(pos=p1, radius=1, color=color.red,make_trail=True)
 
 star=sphere(pos=p2, radius=2, color=color.yellow)
 
-plnt.velocity=vector(0,0.2,0)
+plnt.velocity=vector(0,0.3,0)
 
 a=float(input("m1"))
 b=float(input("m2"))

@@ -3,7 +3,7 @@ from vpython import *
 import sympy as sp
 
 global G
-G=6.67430*(10**-11)
+G=6.67430*(10**-2)
 p_1=input("Enter position vec of m1 (x,y,z):")
 p_2=input("Enter position vec of m2 (x,y,z):")
 
@@ -17,11 +17,11 @@ p2=vec(x2,y2,z2)
 
 
 
-plnt=sphere(pos=p1, radius=10000000, color=color.red,make_trail=True)
+plnt=sphere(pos=p1, radius=1, color=color.red)
 
-star=sphere(pos=p2, radius=20000000, color=color.yellow)
+star=sphere(pos=p2, radius=2, color=color.yellow)
 
-plnt.velocity=vector(0,10220,0)
+plnt.velocity=vector(0,0.2,0)
 
 a=float(input("m1"))
 b=float(input("m2"))

@@ -17,41 +17,66 @@ p2=vec(x2,y2,z2)
 
 
 
-plnt=sphere(pos=p1, radius=1, color=color.red,make_trail=True)
+planet=sphere(pos=p1, radius=1, color=color.red, make_trail=True,retain=500,trail_radius=0.2)
 
-star=sphere(pos=p2, radius=2, color=color.yellow)
+star=sphere(pos=p2, radius=2, color=color.white,emissive=True)
 
-plnt.velocity=vector(0,0.3,0)
+planet.velocity=vector(0,0.05,0)
 
 a=float(input("m1"))
 b=float(input("m2"))
 
 
-def com(m1,m2):
-    p_com=(m1*p1+m2*p2)/(m1+m2)
-    print(p_com)
-    return p_com
-
-p_com=com(a,b)
-
-def gravity(p1,p2,m1,m2):
-    r_vec=p1-p2
-    r_mag=mag(r_vec)
-    F_vec=-((G*(m1*m2))/(r_mag**2))*norm(r_vec)
-    a_vec=F_vec/a
-    return a_vec
+def geta(p1, p2, m1, m2):
+    r_vec = p1 - p2
+    r_mag = mag(r_vec)
     
+    F_vec = -((G * m1 * m2) / (r_mag ** 2)) * norm(r_vec)
+    a_vec = F_vec / m1
+    return a_vec
 
+#Implimenting RK4:
+h=0.1
+def rk4(vn,pn,sn,m1,m2):
+    k1=h*(vn)
+    l1=h*(geta(pn,sn,a,b))
 
-dt=0.1
+    k2=h*(vn+l1/2)
+    l2=h*(geta(pn+k1/2,sn,a,b))
+
+    k3=h*(vn+l2/2)
+    l3=h*(geta(pn+k2/2,sn,a,b))
+
+    k4=h*(vn+l3)
+    l4=h*(geta(pn+k3,sn,a,b))
+
+    k=(k1+2*k2+2*k3+k4)/6
+    l=(l1+2*l2+2*l3+l4)/6
+
+    pn1=k
+    vn1=l
+
+    return pn1,vn1
 
 while True:
-    rate(500)
+    rate(100)
+    dp,dv=rk4(planet.velocity,planet.pos,star.pos,a,b)
+    planet.pos+=dp
+    planet.velocity+=dv
 
-    a_vec=gravity(plnt.pos,star.pos,a,b)
-    plnt.velocity= plnt.velocity + (a_vec) * dt
-    plnt.pos=plnt.pos + plnt.velocity * dt
+
+        
     
+    
+    
+
+
+
+
+
+
+    
+
 
 
 

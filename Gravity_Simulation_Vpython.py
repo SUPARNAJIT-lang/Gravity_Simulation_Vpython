@@ -1,9 +1,5 @@
-import math
 from vpython import *
-import sympy as sp
 
-
-scene = canvas(fullscreen=True)
 
 
 global G

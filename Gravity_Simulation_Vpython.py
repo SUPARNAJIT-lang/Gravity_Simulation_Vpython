@@ -19,10 +19,10 @@ p2=vec(x2,y2,z2)
 
 planet=sphere(pos=p1, radius=1, color=color.red, make_trail=True,retain=500,trail_radius=0.2)
 
-star=sphere(pos=p2, radius=2, color=color.white,emissive=True)
+star=sphere(pos=p2, radius=2, color=color.white,emissive=True, make_trail=True,retain=500,trail_radius=0.2)
 
-planet.velocity=vector(0,0.07,0)
-
+planet.velocity=vector(0,0.1,0)
+star.velocity=vector(0,-0.1,0)
 
 
 a=float(input("m1"))
@@ -38,19 +38,19 @@ def geta(p1, p2, m1, m2):
     return a_vec
 
 #Implimenting RK4:
-h=0.1
-def rk4(vn,pn,sn):
+h=0.07
+def rk4(vn,pn,sn,m1,m2):
     k1=h*(vn)
-    l1=h*(geta(pn,sn,a,b))
+    l1=h*(geta(pn,sn,m1,m2))
 
     k2=h*(vn+l1/2)
-    l2=h*(geta(pn+k1/2,sn,a,b))
+    l2=h*(geta(pn+k1/2,sn,m1,m2))
 
     k3=h*(vn+l2/2)
-    l3=h*(geta(pn+k2/2,sn,a,b))
+    l3=h*(geta(pn+k2/2,sn,m1,m2))
 
     k4=h*(vn+l3)
-    l4=h*(geta(pn+k3,sn,a,b))
+    l4=h*(geta(pn+k3,sn,m1,m2))
 
     k=(k1+2*k2+2*k3+k4)/6
     l=(l1+2*l2+2*l3+l4)/6
@@ -62,9 +62,15 @@ def rk4(vn,pn,sn):
 
 while True:
     rate(100)
-    dp,dv=rk4(planet.velocity,planet.pos,star.pos)
-    planet.pos+=dp
-    planet.velocity+=dv
+    
+    dp1,dv1=rk4(planet.velocity,planet.pos,star.pos,a,b)
+    dp2,dv2=rk4(star.velocity,star.pos,planet.pos,b,a)
+    
+    planet.pos+=dp1
+    planet.velocity+=dv1
+    
+    star.pos+=dp2
+    star.velocity+=dv2
 
 
         

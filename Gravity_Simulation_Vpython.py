@@ -23,6 +23,8 @@ star=sphere(pos=p2, radius=2, color=color.white,emissive=True)
 
 planet.velocity=vector(0,0.07,0)
 
+
+
 a=float(input("m1"))
 b=float(input("m2"))
 

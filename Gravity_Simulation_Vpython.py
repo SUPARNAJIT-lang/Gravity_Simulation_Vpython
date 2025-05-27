@@ -2,6 +2,10 @@ import math
 from vpython import *
 import sympy as sp
 
+
+scene = canvas(fullscreen=True)
+
+
 global G
 G=6.67430*(10**-2)
 p_1=input("Enter position vec of m1 (x,y,z):")
@@ -19,10 +23,10 @@ p2=vec(x2,y2,z2)
 
 planet=sphere(pos=p1, radius=1, color=color.red, make_trail=True,retain=500,trail_radius=0.2)
 
-star=sphere(pos=p2, radius=2, color=color.white,emissive=True, make_trail=True,retain=500,trail_radius=0.2)
+star=sphere(pos=p2, radius=2, color=color.orange,emissive=True, make_trail=True,retain=500,trail_radius=0.2)
 
-planet.velocity=vector(0,0.1,0)
-star.velocity=vector(0,-0.1,0)
+planet.velocity=vector(0.2,0.1,0)
+star.velocity=vector(0,0,0)
 
 
 a=float(input("m1"))

@@ -17,11 +17,11 @@ p2=vec(x2,y2,z2)
 
 
 
-planet=sphere(pos=p1, radius=1, color=color.red, make_trail=True,retain=500,trail_radius=0.2)
+planet=sphere(pos=p1, radius=4, color=color.red, make_trail=True,retain=500,trail_radius=0.2)
 
-star=sphere(pos=p2, radius=2, color=color.orange,emissive=True, make_trail=True,retain=500,trail_radius=0.2)
+star=sphere(pos=p2, radius=10, color=color.orange,emissive=False, make_trail=True,retain=500,trail_radius=0.2)
 
-planet.velocity=vector(0.2,0.1,0)
+planet.velocity=vector(0,1,0)
 star.velocity=vector(0,0,0)
 
 
@@ -38,7 +38,7 @@ def geta(p1, p2, m1, m2):
     return a_vec
 
 #Implimenting RK4:
-h=0.07
+h=0.09
 def rk4(vn,pn,sn,m1,m2):
     k1=h*(vn)
     l1=h*(geta(pn,sn,m1,m2))
@@ -71,6 +71,10 @@ while True:
     
     star.pos+=dp2
     star.velocity+=dv2
+
+    print(planet.pos)
+
+
 
 
         

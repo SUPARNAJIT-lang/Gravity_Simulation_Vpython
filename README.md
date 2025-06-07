@@ -5,15 +5,7 @@ Welcome to the **Gravity Simulation** project powered by **VPython**, created to
 
 ---
 
-## 🌀 Demo
 
-<p align="center">
-  <img src="C:\Users\HP\OneDrive\Documents\GitHub\Gravity_Simulation_Vpython\assets\screenshot1.png.png" width="600" alt="Gravity Simulation Screenshot">
-</p>
-
-*Make sure to check the assets folder for visual previews of the simulation.*
-
----
 
 ## ✨ Features
 

@@ -32,3 +32,8 @@ Make sure Python is installed, then install the only required package:
 
 ```bash
 pip install vpython
+
+```bash
+git clone https://github.com/SUPARNAJIT-lang/Gravity_Simulation_Vpython.git
+cd Gravity_Simulation_Vpython
+python Gravity_Simulation_Vpython.py

@@ -8,7 +8,7 @@ Welcome to the **Gravity Simulation** project powered by **VPython**, created to
 ## 🌀 Demo
 
 <p align="center">
-  <img src="blob:https://onedrive.live.com/4aa8f7fb-dec9-4f5c-8859-fb73f21da68f" width="600" alt="Gravity Simulation Screenshot">
+  <img src="file:///C:/Users/HP/OneDrive/Pictures/Screenshots/Screenshot%202025-05-28%20002304.png" width="600" alt="Gravity Simulation Screenshot">
 </p>
 
 *Make sure to check the assets folder for visual previews of the simulation.*

@@ -8,7 +8,7 @@ Welcome to the **Gravity Simulation** project powered by **VPython**, created to
 ## 🌀 Demo
 
 <p align="center">
-  <img src="assets/screenshot1.png" width="600" alt="Gravity Simulation Screenshot">
+  <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\Screenshot 2025-05-28 002304.png" width="600" alt="Gravity Simulation Screenshot">
 </p>
 
 *Make sure to check the assets folder for visual previews of the simulation.*
@@ -33,7 +33,4 @@ Make sure Python is installed, then install the only required package:
 ```bash
 pip install vpython
 
-```bash
-git clone https://github.com/SUPARNAJIT-lang/Gravity_Simulation_Vpython.git
-cd Gravity_Simulation_Vpython
-python Gravity_Simulation_Vpython.py
+

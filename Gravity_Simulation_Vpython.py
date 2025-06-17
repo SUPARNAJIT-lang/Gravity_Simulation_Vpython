@@ -66,7 +66,7 @@ def geta(p, p0, m1, m2):
     return a_vec
 
 #Implimenting RK4:
-h=0.01
+h=0.001
 def rk4(vn,pn,sn,m1,m2):
     k1=h*vn
     l1=h*(geta(pn,sn,m1,m2))
